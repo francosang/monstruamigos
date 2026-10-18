@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¡Monstruamigos! — Crea tu personaje</title>
+<style>
+:root{--ink:#28203b;--purple:#6d42a6;--pink:#ff6ba8;--yellow:#ffe27a;--mint:#baf4dc;--paper:#fffaf0}
+*{box-sizing:border-box}body{margin:0;font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at 15% 10%,#ffe7f1 0 8%,transparent 9%),radial-gradient(circle at 90% 20%,#e3dcff 0 10%,transparent 11%),#f5efff}
+header{text-align:center;padding:25px 16px 12px}h1{font-size:clamp(2rem,5vw,3.6rem);line-height:1;margin:5px 0;color:#603394;letter-spacing:-1.5px;text-shadow:2px 3px 0 white}header p{margin:10px auto;max-width:650px;font-size:1.05rem}
+.wrap{max-width:1120px;margin:0 auto;padding:12px 16px 36px;display:grid;grid-template-columns:minmax(270px, .85fr) minmax(320px,1.15fr);gap:18px}
+.panel{background:#ffffffdb;border:3px solid white;border-radius:25px;padding:18px;box-shadow:0 8px 0 #d9c9f1}
+h2{font-size:1.15rem;margin:0 0 12px}.field{margin:14px 0}.field label{display:block;font-weight:800;margin-bottom:8px}.choices{display:flex;gap:7px;flex-wrap:wrap}
+button,select{font:inherit}button{border:2px solid #e2d6f2;background:white;border-radius:13px;padding:9px 12px;font-weight:800;color:var(--ink);cursor:pointer;transition:transform .12s,border-color .12s}button:hover{transform:translateY(-2px);border-color:var(--purple)}button:focus-visible,select:focus-visible{outline:3px solid #ff6ba8;outline-offset:2px}.choices button.active{background:#e9ddff;border-color:#7b4eb5;box-shadow:inset 0 0 0 1px #7b4eb5}.swatch{width:35px;height:35px;padding:0;border-radius:50%;border:3px solid white;box-shadow:0 0 0 2px #e0d6ee}.swatch.active{box-shadow:0 0 0 3px #6d42a6}
+.preview{display:flex;flex-direction:column;min-height:590px;background:linear-gradient(180deg,#d8f7ee,#e8ddff 75%,#ffd7e7);position:relative;overflow:hidden;text-align:center}
+.preview:before{content:"";position:absolute;width:270px;height:270px;background:#fff7c7;border-radius:50%;top:45px;right:-95px;opacity:.75}
+.preview:after{content:"✦  ·  ✧   ·  ✦";position:absolute;top:30px;left:18px;font-size:1.5rem;color:#fff;letter-spacing:12px}
+.preview h2{position:relative;z-index:1;font-size:1.35rem;margin:3px 0}
+.stage{position:relative;z-index:1;flex:1;display:flex;align-items:center;justify-content:center;min-height:370px}
+#character{width:min(90%,370px);height:365px;filter:drop-shadow(0 10px 0 #9a7dc833)}
+.namebox{position:relative;z-index:1;margin:0 auto 16px;width:min(90%,330px)}input{font:inherit;font-weight:800;width:100%;padding:12px;border:2px solid #d6c3ee;border-radius:13px;text-align:center;background:#fff}
+.actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;position:relative;z-index:1;padding-bottom:4px}.primary{background:#6d42a6;color:white;border-color:#6d42a6}.surprise{background:#ffe27a;border-color:#f0cf4b}
+.caption{font-size:.88rem;opacity:.8;margin:10px 0 0}.sticker{position:absolute;z-index:1;font-size:2rem}.s1{left:18px;bottom:95px}.s2{right:20px;bottom:125px}
+footer{text-align:center;padding:0 16px 25px;color:#5d4c78}
+@media(max-width:760px){.wrap{grid-template-columns:1fr}.preview{min-height:520px;grid-row:1}.stage{min-height:330px}#character{height:330px}.panel{padding:15px}}
+</style>
+</head>
+<body>
+<header><div style="font-size:1.4rem">🎃 🦇 ✨ 👻 🕸️</div><h1>¡MONSTRUAMIGOS!</h1><p>¡Diseña un personaje de Halloween! Elige su cuerpo, colores, ropa y accesorios. Aquí los monstruos vienen a hacer amigos.</p></header>
+<main class="wrap">
+<section class="panel" aria-label="Opciones para crear personaje">
+<h2>🎨 Taller de monstruos</h2>
+<div class="field"><label>1. Tipo de personaje</label><div class="choices" id="types">
+<button data-type="fantasma" class="active">👻 Fantasma</button><button data-type="bruja">🧙 Bruja</button><button data-type="vampiro">🧛 Vampiro</button><button data-type="esqueleto">💀 Esqueleto</button><button data-type="gato">🐈‍⬛ Gatito</button><button data-type="calabaza">🎃 Calabaza</button>
+</div></div>
+<div class="field"><label>2. Color del cuerpo</label><div class="choices" id="colors">
+<button class="swatch active" data-color="#b9a0ff" style="background:#b9a0ff" aria-label="Lila"></button><button class="swatch" data-color="#a5edda" style="background:#a5edda" aria-label="Menta"></button><button class="swatch" data-color="#ffb5d1" style="background:#ffb5d1" aria-label="Rosa"></button><button class="swatch" data-color="#ffbd78" style="background:#ffbd78" aria-label="Naranja"></button><button class="swatch" data-color="#b9e6ff" style="background:#b9e6ff" aria-label="Azul"></button><button class="swatch" data-color="#fff0a6" style="background:#fff0a6" aria-label="Amarillo"></button><button class="swatch" data-color="#7b6a89" style="background:#7b6a89" aria-label="Morado oscuro"></button>
+</div></div>
+<div class="field"><label>3. Ropa</label><div class="choices" id="clothes"><button data-clothes="capa" class="active">🦇 Capa</button><button data-clothes="vestido">👗 Vestido</button><button data-clothes="rayas">🧦 Rayas</button><button data-clothes="overol">🧸 Overol</button><button data-clothes="tunica">✨ Túnica</button><button data-clothes="ninguna">Sin ropa</button></div></div>
+<div class="field"><label>4. Accesorio</label><div class="choices" id="accessories"><button data-accessory="sombrero" class="active">🎩 Sombrero</button><button data-accessory="corona">👑 Corona</button><button data-accessory="lazo">🎀 Lazo</button><button data-accessory="alas">🪽 Alas</button><button data-accessory="calabaza">🎃 Calabacita</button><button data-accessory="ninguno">Ninguno</button></div></div>
+<div class="field"><label>5. Ojos</label><div class="choices" id="eyes"><button data-eyes="feliz" class="active">😊 Felices</button><button data-eyes="sorpresa">😮 Sorpresa</button><button data-eyes="travieso">😈 Traviesos</button><button data-eyes="dormido">😴 Dormidos</button></div></div>
+<p class="caption">¡No hay combinaciones incorrectas! Prueba todos los estilos.</p>
+</section>
+<section class="panel preview" aria-label="Vista previa del personaje">
+<h2>✨ Tu creación ✨</h2><span class="sticker s1">🕸️</span><span class="sticker s2">⭐</span>
+<div class="stage"><svg id="character" viewBox="0 0 320 360" role="img" aria-label="Vista previa de tu monstruo"></svg></div>
+<div class="namebox"><input id="name" maxlength="22" value="Chispitas" aria-label="Nombre del personaje" /></div>
+<div class="actions"><button class="primary" id="random">🎲 ¡Sorpréndeme!</button><button id="download">📸 Guardar dibujo</button></div>
+<p class="caption" id="description">Un fantasmita lila con capa y sombrero.</p>
+</section>
+</main>
+<footer>Hecho para imaginar, jugar y crear monstruos adorables. 👻💜</footer>
+<script>
+const state={type:'fantasma',color:'#b9a0ff',clothes:'capa',accessory:'sombrero',eyes:'feliz'};
+const $=s=>document.querySelector(s);
+function pick(group,key,val){state[key]=val;document.querySelectorAll('#'+group+' button').forEach(b=>b.classList.toggle('active',b.dataset[key]===val));render()}
+document.querySelectorAll('#types button').forEach(b=>b.onclick=()=>pick('types','type',b.dataset.type));
+document.querySelectorAll('#colors button').forEach(b=>b.onclick=()=>pick('colors','color',b.dataset.color));
+document.querySelectorAll('#clothes button').forEach(b=>b.onclick=()=>pick('clothes','clothes',b.dataset.clothes));
+document.querySelectorAll('#accessories button').forEach(b=>b.onclick=()=>pick('accessories','accessory',b.dataset.accessory));
+document.querySelectorAll('#eyes button').forEach(b=>b.onclick=()=>pick('eyes','eyes',b.dataset.eyes));
+$('#name').addEventListener('input',render);
+const names={fantasma:'fantasmita',bruja:'brujita',vampiro:'vampirito',esqueleto:'esqueletito',gato:'gatito mágico',calabaza:'calabacita'};
+function render(){
+ let c=state.color, type=state.type, clothes=state.clothes, acc=state.accessory;
+ let body;
+ if(type==='fantasma') body=`<path d="M75 292 L75 130 Q75 55 160 55 Q245 55 245 130 L245 275 Q225 250 205 275 Q185 300 165 275 Q145 250 125 275 Q100 300 75 292Z" fill="${c}" stroke="#55436f" stroke-width="5" stroke-linejoin="round"/>`;
+ if(type==='bruja') body=`<path d="M80 290 L100 120 Q160 70 220 120 L240 290Z" fill="${c}" stroke="#55436f" stroke-width="5"/><path d="M100 120 Q160 155 220 120" fill="none" stroke="#55436f" stroke-width="4"/>`;
+ if(type==='vampiro') body=`<path d="M75 290 L85 140 Q95 65 160 65 Q225 65 235 140 L245 290 L205 260 L160 300 L115 260Z" fill="${c}" stroke="#55436f" stroke-width="5"/><path d="M105 215 L80 290 L135 260 L160 305 L185 260 L240 290 L215 215Z" fill="#5a3d76" stroke="#55436f" stroke-width="4"/>`;
+ if(type==='esqueleto') body=`<path d="M75 292 L75 135 Q75 60 160 60 Q245 60 245 135 L245 292Z" fill="#fff8df" stroke="#55436f" stroke-width="5"/>`;
+ if(type==='gato') body=`<path d="M85 125 L72 48 L130 85 Q160 70 190 85 L248 48 L235 125 Q250 170 238 235 Q220 300 160 300 Q100 300 82 235 Q70 170 85 125Z" fill="${c}" stroke="#55436f" stroke-width="5" stroke-linejoin="round"/>`;
+ if(type==='calabaza') body=`<path d="M160 95 C120 65 70 100 75 185 C70 260 115 295 160 280 C205 295 250 260 245 185 C250 100 200 65 160 95Z" fill="#ffad55" stroke="#55436f" stroke-width="5"/><path d="M160 100 Q145 70 165 48 L184 50 L181 105" fill="#77b77b" stroke="#55436f" stroke-width="4"/>`;
+ let outfit='';
+ if(clothes==='capa') outfit=`<path d="M95 210 L70 315 L160 290 L250 315 L225 210 Q160 245 95 210Z" fill="#6441a5" stroke="#44315e" stroke-width="5"/>`;
+ if(clothes==='vestido') outfit=`<path d="M125 210 L95 310 Q160 340 225 310 L195 210Z" fill="#ff6ba8" stroke="#75406d" stroke-width="5"/><path d="M110 285 Q160 305 210 285" stroke="#fff" stroke-width="5" fill="none"/>`;
+ if(clothes==='rayas') outfit=`<path d="M92 210 L78 305 L242 305 L228 210Z" fill="#fff6d9" stroke="#55436f" stroke-width="5"/>`+Array.from({length:5},(_,i)=>`<path d="M${98+i*28} 215 l-8 88" stroke="#9a6dd4" stroke-width="10"/>`).join('');
+ if(clothes==='overol') outfit=`<path d="M95 225 L85 310 L235 310 L225 225Z" fill="#67bce8" stroke="#55436f" stroke-width="5"/><path d="M120 220 L120 190 L145 190 L145 230 M175 230 L175 190 L200 190 L200 220" stroke="#55436f" stroke-width="9" fill="none"/><circle cx="130" cy="255" r="5" fill="#fff"/><circle cx="190" cy="255" r="5" fill="#fff"/>`;
+ if(clothes==='tunica') outfit=`<path d="M100 210 L65 315 L255 315 L220 210 Q160 240 100 210Z" fill="#3e9b85" stroke="#315d59" stroke-width="5"/><path d="M160 238 L160 310" stroke="#ffe27a" stroke-width="7"/>`;
+ let face='';
+ if(type==='esqueleto') face=`<ellipse cx="130" cy="150" rx="20" ry="24" fill="#3b304d"/><ellipse cx="190" cy="150" rx="20" ry="24" fill="#3b304d"/><path d="M140 195 L180 195 L160 215Z" fill="#3b304d"/><path d="M128 220 L192 220 M135 215 L135 232 M150 215 L150 232 M170 215 L170 232 M185 215 L185 232" stroke="#3b304d" stroke-width="4"/>`;
+ else if(state.eyes==='feliz') face=`<path d="M112 155 Q125 135 140 155 M180 155 Q195 135 208 155" stroke="#3b304d" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M135 190 Q160 215 185 190" stroke="#3b304d" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+ else if(state.eyes==='sorpresa') face=`<circle cx="128" cy="153" r="15" fill="white" stroke="#3b304d" stroke-width="4"/><circle cx="192" cy="153" r="15" fill="white" stroke="#3b304d" stroke-width="4"/><circle cx="128" cy="155" r="6" fill="#3b304d"/><circle cx="192" cy="155" r="6" fill="#3b304d"/><ellipse cx="160" cy="198" rx="13" ry="18" fill="#3b304d"/>`;
+ else if(state.eyes==='travieso') face=`<path d="M108 145 L143 153 M177 153 L212 145" stroke="#3b304d" stroke-width="7" stroke-linecap="round"/><ellipse cx="128" cy="160" rx="10" ry="14" fill="#3b304d"/><ellipse cx="192" cy="160" rx="10" ry="14" fill="#3b304d"/><path d="M135 195 Q165 205 190 185" stroke="#3b304d" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+ else face=`<path d="M110 157 Q128 147 145 157 M175 157 Q192 147 210 157" stroke="#3b304d" stroke-width="7" stroke-linecap="round"/><path d="M140 195 Q160 205 180 195" stroke="#3b304d" stroke-width="5" fill="none"/>`;
+ if(type==='gato') face=`<path d="M105 155 L140 155 L125 175Z M180 155 L215 155 L195 175Z" fill="#3b304d"/><path d="M145 190 Q160 205 175 190" stroke="#3b304d" stroke-width="5" fill="none"/><path d="M110 185 L65 175 M110 198 L65 205 M210 185 L255 175 M210 198 L255 205" stroke="#3b304d" stroke-width="3"/>`;
+ if(type==='calabaza') face=`<path d="M105 150 L145 165 L120 180Z M175 165 L215 150 L200 180Z" fill="#3b304d"/><path d="M125 205 Q160 235 195 205 L185 220 L135 220Z" fill="#3b304d"/>`;
+ let hat='';
+ if(acc==='sombrero') hat=`<path d="M95 91 L115 25 L202 25 L225 91Z" fill="#53317f" stroke="#3d2a57" stroke-width="5"/><path d="M78 92 Q160 72 242 92 Q160 112 78 92Z" fill="#3d2a57" stroke="#3d2a57" stroke-width="4"/><path d="M117 67 L211 67" stroke="#ff6ba8" stroke-width="10"/>`;
+ if(acc==='corona') hat=`<path d="M105 80 L92 30 L130 55 L160 20 L190 55 L228 30 L215 80Z" fill="#ffe27a" stroke="#a47a28" stroke-width="5"/>`;
+ if(acc==='lazo') hat=`<path d="M160 78 Q110 25 110 65 Q110 95 160 78 Q210 25 210 65 Q210 95 160 78Z" fill="#ff6ba8" stroke="#a84777" stroke-width="4"/><circle cx="160" cy="77" r="10" fill="#ffe27a"/>`;
+ if(acc==='alas') hat=`<path d="M92 190 Q20 125 45 220 Q55 260 100 250 M228 190 Q300 125 275 220 Q265 260 220 250" fill="#fff" stroke="#9e8dc1" stroke-width="5"/>`;
+ if(acc==='calabaza') hat=`<g transform="translate(160 70)"><path d="M0 -28 C-32 -40 -42 -8 -35 12 C-25 35 25 35 35 12 C42 -8 32 -40 0 -28Z" fill="#ffad55" stroke="#704a40" stroke-width="4"/><path d="M0 -27 L4 -43 L15 -40 L12 -25" fill="#77b77b" stroke="#704a40" stroke-width="3"/><path d="M-20 0 L-5 7 L-15 13 M20 0 L5 7 L15 13" stroke="#704a40" stroke-width="4" fill="none"/></g>`;
+ let wings=acc==='alas'?'': '';
+ let fangs=type==='vampiro'?'<path d="M143 195 L151 212 L158 198 M162 198 L171 212 L178 195" fill="white" stroke="#3b304d" stroke-width="2"/>':'';
+ $('#character').innerHTML=`<ellipse cx="160" cy="325" rx="88" ry="12" fill="#8875ad" opacity=".18"/>${body}${outfit}${face}${fangs}${hat}`;
+ let nm=$('#name').value.trim()||'Tu monstruo';
+ $('#description').textContent=`${nm}: ${names[type]} ${state.eyes==='feliz'?'feliz':state.eyes==='sorpresa'?'sorprendido':state.eyes==='travieso'?'travieso':'soñoliento'}, con ${clothes==='ninguna'?'su estilo natural':clothes==='capa'?'capa':clothes==='vestido'?'vestido':clothes==='rayas'?'ropa a rayas':clothes==='overol'?'overol':'túnica'} y ${acc==='ninguno'?'sin accesorio':acc==='sombrero'?'sombrero':acc==='corona'?'corona':acc==='lazo'?'lazo':acc==='alas'?'alas':'una calabacita'}.`;
+}
+$('#random').onclick=()=>{
+ const groups=[['type',['fantasma','bruja','vampiro','esqueleto','gato','calabaza']],['color',['#b9a0ff','#a5edda','#ffb5d1','#ffbd78','#b9e6ff','#fff0a6','#7b6a89']],['clothes',['capa','vestido','rayas','overol','tunica','ninguna']],['accessory',['sombrero','corona','lazo','alas','calabaza','ninguno']],['eyes',['feliz','sorpresa','travieso','dormido']]];
+ groups.forEach(([key,values])=>state[key]=values[Math.floor(Math.random()*values.length)]);
+ const ids={type:'types',color:'colors',clothes:'clothes',accessory:'accessories',eyes:'eyes'};
+ groups.forEach(([key])=>document.querySelectorAll('#'+ids[key]+' button').forEach(b=>b.classList.toggle('active',b.dataset[key]===state[key])));
+ const randomNames=['Pompón','Lunita','Chispa','Mordisquitos','Calabacín','Nube','Conde Risitas','Doña Boo'];
+ $('#name').value=randomNames[Math.floor(Math.random()*randomNames.length)];render();
+};
+$('#download').onclick=()=>{
+ const svg=$('#character').cloneNode(true);
+ svg.setAttribute('xmlns','http://www.w3.org/2000/svg');
+ const blob=new Blob([new XMLSerializer().serializeToString(svg)],{type:'image/svg+xml;charset=utf-8'});
+ const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=(($('#name').value||'monstruamigo').replace(/[^a-z0-9áéíóúñ_-]/gi,'-'))+'.svg';a.click();URL.revokeObjectURL(url);
+};
+render();
+</script>
+</body>
+</html>
