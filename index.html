@@ -21,7 +21,7 @@ button,select{font:inherit}button{border:2px solid #e2d6f2;background:white;bord
 .namebox{position:relative;z-index:1;margin:0 auto 16px;width:min(90%,330px)}input{font:inherit;font-weight:800;width:100%;padding:12px;border:2px solid #d6c3ee;border-radius:13px;text-align:center;background:#fff}
 .actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;position:relative;z-index:1;padding-bottom:4px}.primary{background:#6d42a6;color:white;border-color:#6d42a6}.surprise{background:#ffe27a;border-color:#f0cf4b}
 .caption{font-size:.88rem;opacity:.8;margin:10px 0 0}.sticker{position:absolute;z-index:1;font-size:2rem}.s1{left:18px;bottom:95px}.s2{right:20px;bottom:125px}
-footer{text-align:center;padding:0 16px 25px;color:#5d4c78}
+.contact{max-width:1088px;margin:0 auto 24px}.contact h2{margin-bottom:6px}.contact p{margin:0 0 14px}.contact iframe{display:block;border:0;max-width:100%}footer{text-align:center;padding:0 16px 25px;color:#5d4c78}
 @media(max-width:760px){.wrap{grid-template-columns:1fr}.preview{min-height:520px;grid-row:1}.stage{min-height:330px}#character{height:330px}.panel{padding:15px}}
 </style>
 </head>
@@ -49,6 +49,11 @@ footer{text-align:center;padding:0 16px 25px;color:#5d4c78}
 <p class="caption" id="description">Un fantasmita lila con capa y sombrero.</p>
 </section>
 </main>
+<section class="panel contact" aria-labelledby="contact-title">
+<h2 id="contact-title">💌 Contacto</h2>
+<p>¿Quieres contarnos algo sobre Monstruamigos? Completa este formulario.</p>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe-1n4cFO9UZajHp97PamXs7M7S_-p75siajXTZwRE-6ToyBQ/viewform?embedded=true" title="Formulario de contacto de Monstruamigos" width="100%" height="650" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+</section>
 <footer>Hecho para imaginar, jugar y crear monstruos adorables. 👻💜</footer>
 <script>
 const state={type:'fantasma',color:'#b9a0ff',clothes:'capa',accessory:'sombrero',eyes:'feliz'};
